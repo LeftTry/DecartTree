@@ -9,6 +9,7 @@ public:
     node();
     node(int key);
     node(int key, int p, node* l, node* r);
+    void split(int x, node* l, node* r);
 };
 
 node::node() {
@@ -45,6 +46,15 @@ node* merge(node* l, node* r){
         ans = new node(r->key, r->p, Node, r->r);
     }
     return ans;
+}
+
+void node::split(int x, node* l, node* r){
+    node* tree = nullptr;
+    if(this->key <= x){
+        if(this->r == nullptr) r = nullptr;
+        l = new node(this->key, p, l, tree);
+
+    }
 }
 
 int main() {
